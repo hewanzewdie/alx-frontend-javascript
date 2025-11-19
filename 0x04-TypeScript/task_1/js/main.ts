@@ -44,13 +44,13 @@ function printTeacher({ firstName, lastName }: { firstName: string; lastName: st
 
 console.log(printTeacher({ firstName: "John", lastName: "Doe" }));
 
-interface StudentConstructor {
-  new (firstName: string, lastName: string): StudentClassInterface;
-}
-
 interface StudentClassInterface {
   workOnHomework(): string;
   displayName(): string;
+}
+
+interface StudentConstructor {
+  new (firstName: string, lastName: string): StudentClassInterface;
 }
 
 class StudentClass implements StudentClassInterface {
