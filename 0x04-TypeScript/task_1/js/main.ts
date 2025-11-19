@@ -4,6 +4,7 @@ interface Teacher {
   fullTimeEmployee: boolean;
   location: string;
   contract: boolean;
+  yearsOfExperience?: number;
 
   [key: string]: any;
 }
