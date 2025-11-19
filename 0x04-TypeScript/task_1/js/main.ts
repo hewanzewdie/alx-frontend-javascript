@@ -38,8 +38,39 @@ interface printTeacherFunction {
 }
 
 function printTeacher({ firstName, lastName }: { firstName: string; lastName: string }): string {
-  firstName = firstName[0]; // convert to first letter
+  firstName = firstName[0]; 
   return `${firstName}. ${lastName}`;
 }
 
 console.log(printTeacher({ firstName: "John", lastName: "Doe" }));
+
+interface StudentConstructor {
+  new (firstName: string, lastName: string): StudentClassInterface;
+}
+
+interface StudentClassInterface {
+  workOnHomework(): string;
+  displayName(): string;
+}
+
+class StudentClass implements StudentClassInterface {
+  private firstName: string;
+  private lastName: string;
+
+  constructor(firstName: string, lastName: string) {
+    this.firstName = firstName;
+    this.lastName = lastName;
+  }
+
+  workOnHomework(): string {
+    return "Currently working";
+  }
+
+  displayName(): string {
+    return this.firstName;
+  }
+}
+
+const student = new StudentClass("John", "Doe");
+console.log(student.displayName());
+console.log(student.workOnHomework());
