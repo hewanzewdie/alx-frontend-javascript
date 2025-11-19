@@ -6,7 +6,10 @@ interface StudentClassInterface {
 interface StudentConstructor {
   new (firstName: string, lastName: string): StudentClassInterface;
 }
-class StudentClass implements StudentClassInterface {
+
+class StudentClass
+  implements StudentClassInterface {
+
   private firstName: string;
   private lastName: string;
 
