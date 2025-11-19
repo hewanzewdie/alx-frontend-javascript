@@ -1,7 +1,5 @@
-// String literal type
 export type Subjects = "Math" | "History";
 
-// Function to teach class
 export function teachClass(todayClass: Subjects): string {
   if (todayClass === "Math") {
     return "Teaching Math";
@@ -9,6 +7,5 @@ export function teachClass(todayClass: Subjects): string {
   return "Teaching History";
 }
 
-// Example usage
 console.log(teachClass("Math"));     // Teaching Math
 console.log(teachClass("History"));  // Teaching History
