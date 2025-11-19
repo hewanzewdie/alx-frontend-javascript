@@ -36,10 +36,12 @@ const director1: Director = {
 console.log(director1);
 
 
-function printTeacher(firstName: string, lastName: string){
-  return(
-    console.log(firstName, lastName)
-  )
+interface printTeacherFunction {
+  (teacher: { firstName: string; lastName: string }): string;
 }
 
-printTeacher('John', 'Doe')
+const printTeacher: printTeacherFunction = ({ firstName, lastName }) => {
+  return `${firstName[0]}. ${lastName}`;
+};
+
+console.log(printTeacher({ firstName: "John", lastName: "Doe" }));
