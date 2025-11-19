@@ -5,43 +5,41 @@ interface Teacher {
   location: string;
   contract: boolean;
   yearsOfExperience?: number;
-
   [key: string]: any;
 }
 
-const teacher3: Teacher = {
+const teacher1: Teacher = {
   firstName: 'John',
-  fullTimeEmployee: false,
+  fullTimeEmployee: true,
   lastName: 'Doe',
   location: 'London',
   contract: false,
 };
 
-console.log(teacher3);
-
+console.log(teacher1);
 
 interface Director extends Teacher {
   numberOfReports: number;
 }
 
 const director1: Director = {
-  firstName: 'John',
+  firstName: 'Jane',
   lastName: 'Doe',
-  location: 'London',
+  location: 'New York',
   fullTimeEmployee: true,
   numberOfReports: 17,
-  contract: false
+  contract: false,
 };
 
 console.log(director1);
 
-
 interface printTeacherFunction {
-  (firstName: string, lastName: string): string;
+  ({ firstName, lastName }: { firstName: string; lastName: string }): string;
 }
 
-function printTeacher(firstName: string, lastName: string): string {
-  return `${firstName[0]}. ${lastName}`;
+function printTeacher({ firstName, lastName }: { firstName: string; lastName: string }): string {
+  firstName = firstName[0]; // convert to first letter
+  return `${firstName}. ${lastName}`;
 }
 
-console.log(printTeacher("John", "Doe"));
+console.log(printTeacher({ firstName: "John", lastName: "Doe" }));
